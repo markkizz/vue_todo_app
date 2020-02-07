@@ -1,21 +1,25 @@
 <template>
-  <div class="content">
-    <ul class="list">
-      <TodoItem />
-    </ul>
+  <div>
+    <div class="content">
+      <ul class="list">
+        <TodoItem />
+      </ul>
+    </div>
+    <AddTodo />
   </div>
 </template>
 
 <script>
-import TodoItem from './TodoItem';
+import TodoItem from "./TodoItem";
+import AddTodo from "./AddTodo";
 
 export default {
   name: "Todos",
   components: {
-    TodoItem
+    TodoItem,
+    AddTodo
   }
 };
-
 </script>
 
 <style scoped>
@@ -33,5 +37,4 @@ export default {
   padding: 0;
   margin: 0;
 }
-
 </style>
