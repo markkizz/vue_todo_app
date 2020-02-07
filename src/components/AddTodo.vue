@@ -1,13 +1,31 @@
 <template>
   <div class="add-to-do">
-    <font-awesome-icon :icon="['fas', 'plus-circle']" class="add-icon" />
-    <input type="text" placeholder="Add Todo here">
+    <font-awesome-icon :icon="['fas', 'plus-circle']" class="add-icon" @click="handleAddTodo" />
+    <input type="text" placeholder="Add Todo here" v-model="title">
   </div>
 </template>
 
 <script>
-export default {
+import uuid from 'uuid';
 
+export default {
+  name: "AddTodo",
+  data() {
+    return {
+      title: ''
+    }
+  },
+  methods: {
+    handleAddTodo() {
+      const newTodo = {
+        id: uuid.v4(),
+        title: this.title,
+        isComplete: false
+      }
+      this.$parent.$emit('add-todo', newTodo)
+      this.title = ''
+    }
+  },
 };
 </script>
 

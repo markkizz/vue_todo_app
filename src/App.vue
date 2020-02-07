@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <div class="header"></div>
-    <Todos v-bind:todos="todos" v-on:del-todo="deleteTodo" />
+    <Todos v-bind:todos="todos" v-on:del-todo="deleteTodo" v-on:add-todo="handleAddTodo" />
   </div>
 </template>
 
@@ -32,6 +32,9 @@ export default {
   methods: {
     deleteTodo(id) {
       this.todos = this.todos.filter(todo => todo.id !== id)
+    },
+    handleAddTodo(newTodo) {
+      this.todos = [...this.todos, newTodo]
     }
   }
 };
