@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <div class="header"></div>
-    <Todos />
+    <Todos v-bind:todos="todos"/>
   </div>
 </template>
 
@@ -15,16 +15,16 @@ export default {
   },
   data() {
     return {
-      todo: [
+      todos: [
         {
           id: 1,
           title: "First Todo",
           isComplete: false
         },
         {
-          id: 1,
-          title: "First Todo",
-          isComplete: false
+          id: 2,
+          title: "Secoud Todo",
+          isComplete: true
         }
       ]
     };

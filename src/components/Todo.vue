@@ -1,8 +1,8 @@
 <template>
   <div>
     <div class="content">
-      <ul class="list">
-        <TodoItem />
+      <ul class="list" v-for="todo in todos" :key="todo.id">
+        <TodoItem v-bind:todo="todo" />
       </ul>
     </div>
     <AddTodo />
@@ -18,6 +18,9 @@ export default {
   components: {
     TodoItem,
     AddTodo
+  },
+  props: ["todos"],
+  methods: {
   }
 };
 </script>

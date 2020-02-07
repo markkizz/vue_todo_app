@@ -1,10 +1,11 @@
 <template>
   <li class="item">
     <!-- complete sec -->
-    <font-awesome-icon :icon="['far', 'circle']" class="isComplete-icon" />
-    <p class="text">
-      test
-    </p>
+    <div @click="clickComplete">
+      <font-awesome-icon :icon="['far', 'circle']" class="isComplete-icon" v-if="todo.isComplete===false" />
+      <font-awesome-icon :icon="['fa', 'check-circle']" class="isComplete-icon" v-else />
+    </div>
+    <p class="text" v-bind:class="{'lineThrough':todo.isComplete}">{{todo.title}}</p>
     <!-- trash sec -->
     <font-awesome-icon :icon="['far', 'trash-alt']" class="trash-icon" />
   </li>
@@ -12,7 +13,13 @@
 
 <script>
 export default {
-  name: "TodoItem"
+  name: "TodoItem",
+  props: ["todo"],
+  methods: {
+    clickComplete() {
+      this.todo.isComplete = !this.todo.isComplete
+    }
+  }
 };
 </script>
 
