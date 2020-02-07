@@ -19,9 +19,7 @@ export default {
     TodoItem,
     AddTodo
   },
-  props: ["todos"],
-  methods: {
-  }
+  props: ["todos"]
 };
 </script>
 

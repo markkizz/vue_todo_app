@@ -7,26 +7,24 @@
 
 <script>
 import Todos from "./components/Todo";
+import axios from 'axios';
 
 export default {
   name: "App",
   components: {
     Todos
   },
+  created () {
+    axios.get('https://jsonplaceholder.typicode.com/todos/1')
+    .then(res => {
+      console.log(res.data);
+      this.todos = res.data
+    })
+    .catch(err => console.error(err));
+  },
   data() {
     return {
-      todos: [
-        {
-          id: 1,
-          title: "First Todo",
-          isComplete: false
-        },
-        {
-          id: 2,
-          title: "Secoud Todo",
-          isComplete: true
-        }
-      ]
+      todos: []
     };
   },
   methods: {

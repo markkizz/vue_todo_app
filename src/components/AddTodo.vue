@@ -20,7 +20,7 @@ export default {
       const newTodo = {
         id: uuid.v4(),
         title: this.title,
-        isComplete: false
+        completed: false
       }
       this.$parent.$emit('add-todo', newTodo)
       this.title = ''
